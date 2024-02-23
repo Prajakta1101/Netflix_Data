@@ -1,4 +1,4 @@
-# Netflix_Data
+# Netflix Data
 
 ## Analysis of Netflix Data with SQL
 
