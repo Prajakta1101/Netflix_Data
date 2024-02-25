@@ -1,6 +1,6 @@
 # Analysis of Netflix Data with SQL
 
-Netflix, the world’s leading streaming entertainment service, has revolutionized the way we consume content. With a vast library of TV shows, movies, and documentaries, Netflix offers something for everyone. In this article, we will dive into the world of Netflix data using SQL to uncover interesting insights and answer essential questions.
+Netflix, the world’s leading streaming entertainment service, has revolutionized the way we consume content. With a vast library of TV shows, movies, and documentaries, Netflix offers something for everyone. In this project, we will dive into the world of Netflix data using SQL to uncover interesting insights and answer essential questions.
 
 ## The Dataset
 To perform our analysis, we can use Kaggle’s extensive dataset, which provides detailed information about Netflix shows and movies. It includes more than 8000 datapoints.  
