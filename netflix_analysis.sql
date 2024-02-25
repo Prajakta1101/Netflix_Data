@@ -136,29 +136,26 @@ GROUP BY country
 ORDER BY content_count DESC
 LIMIT 10;
 
-/* Longest and shortest duration
-SELECT
-    title,
-    duration
+-- Longest and shortest duration
+SELECT title, duration
 FROM netflix_data
-ORDER BY
-    CASE WHEN duration LIKE '%h%' THEN CAST(SUBSTRING_INDEX(duration, 'h', 1)) ELSE 0 END DESC,
-    CASE WHEN duration LIKE '%m%' THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(duration, 'h', -1), 'm', 1)) ELSE 0 END DESC
+where duration is not null
+ORDER BY duration DESC
 LIMIT 1;
 
-SELECT
-    title,
-    duration
+SELECT title, duration
 FROM netflix_data
-ORDER BY
-    CASE WHEN duration LIKE '%h%' THEN CAST(SUBSTRING_INDEX(duration, 'h', 1) AS SIGNED) ELSE 0 END ASC,
-    CASE WHEN duration LIKE '%m%' THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(duration, 'h', -1), 'm', 1) AS SIGNED) ELSE 0 END ASC
-LIMIT 1;*/
+where duration is not null and duration not like '%Season%'
+ORDER BY duration ASC
+LIMIT 1;
 
 -- Content added per year
 SELECT 
-	EXTRACT(YEAR FROM TO_DATE(date_added, 'YYYY-Mon-DD')) AS year_,
+    date_part('year', CAST(date_added AS DATE)) AS year_added,
     COUNT(*) AS content_count
-FROM netflix_data
-GROUP BY year_
-ORDER BY year_;
+FROM 
+    netflix_data
+GROUP BY 
+    year_added
+ORDER BY 
+    year_added;
